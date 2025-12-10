@@ -36,7 +36,6 @@ let typeTimeout = null;
 let closeTimeout = null;
 let currentIndex = 0;
 
-let playerTimer = null;
 let gameStarted = false;
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -49,19 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // (Depends on whether main room content is separate or just the background)
 });
 
-function startPlayerTimer() {
-  playerTimer = setTimeout(() => {
-    if (!isDead) {
-      console.log("Time's up! Player failed.");
-      handleEnvironmentalDeath(); // trigger jumpscare
-    }
-  }, PLAYER_TIME_MS);
-}
-
-function stopPlayerTimer() {
-  clearTimeout(playerTimer);
-  playerTimer = null;
-}
 
 /* Slowly increases the tension audio volume and checks for the time-up condition. */
 function updateDegradation() {
@@ -169,35 +155,8 @@ function startAmbianceOnce() {
   // Start the hidden, time-based degradation
   startEnvironmentalTimer();
 
-  startPlayerTimer();
-
   body.removeEventListener("click", startAmbianceOnce);
 }
-
-let remainingTime = 90; // seconds
-const timerEl = document.getElementById("countdownTimer");
-let countdownInterval = null;
-
-function startCountdown() {
-  timerEl.textContent = remainingTime;
-
-  countdownInterval = setInterval(() => {
-    remainingTime--;
-    timerEl.textContent = remainingTime;
-
-    if (remainingTime <= 0) {
-      clearInterval(countdownInterval);
-      if (!isDead) {
-        handleEnvironmentalDeath(); // player ran out of time
-      }
-    }
-  }, 1000); // every second
-}
-
-function stopCountdown() {
-  clearInterval(countdownInterval);
-}
-
 function playSFX(audioElement) {
   // Replay element from start if it's already playing
   audioElement.currentTime = 0;
@@ -597,5 +556,6 @@ const assetsToPreload = [
 document.addEventListener("DOMContentLoaded", () => {
   preloadAssets(assetsToPreload, hidePreloader);
 });
+
 
 
