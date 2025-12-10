@@ -480,7 +480,7 @@ function handleButtonClick(value) {
 
   if (value === "E") {
     if (enteredCode === correctKeypadCode) {
-      window.location.href = "https://nzxk3r.csb.app/";
+      window.location.href = "https://swankye.github.io/pinkie-pie-room-2/";
     } else {
     }
     return;
@@ -590,3 +590,4 @@ const assetsToPreload = [
 document.addEventListener("DOMContentLoaded", () => {
   preloadAssets(assetsToPreload, hidePreloader);
 });
+
