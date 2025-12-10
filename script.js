@@ -444,7 +444,7 @@ function handleButtonClick(value) {
 
   if (value === "E") {
     if (enteredCode === correctKeypadCode) {
-      window.location.href = "https://swankye.github.io/pinkie-pie-room-2/";
+      window.location.href = "https://jordojumbo.github.io/JeffTheKiller-EscapeRoom3/";
     } else {
     }
     return;
@@ -554,6 +554,7 @@ const assetsToPreload = [
 document.addEventListener("DOMContentLoaded", () => {
   preloadAssets(assetsToPreload, hidePreloader);
 });
+
 
 
 
