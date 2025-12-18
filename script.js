@@ -25,7 +25,7 @@ document.addEventListener("click", startAmbianceOnce);
 // Game State Variables
 const TENSION_DURATION_MS = 20000; // 20s heartbeat
 const MAX_DEGRADATION = 100; // For visual/audio tension ramp
-const PLAYER_TIME_MS = 90000; // 90 seconds total time to escape
+const PLAYER_TIME_MS = 120000; // 90 seconds total time to escape
 
 let degradationLevel = 0;
 let degradationTimer = null;
@@ -554,6 +554,7 @@ const assetsToPreload = [
 document.addEventListener("DOMContentLoaded", () => {
   preloadAssets(assetsToPreload, hidePreloader);
 });
+
 
 
 
